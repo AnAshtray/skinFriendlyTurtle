@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SunGuard | Your Solar Companion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono&amp;family=Dancing+Script&amp;family=Work+Sans:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "background": "#f1fbff",
+                "tertiary": "#6a5f0f",
+                "secondary-fixed-dim": "#edc151",
+                "inverse-surface": "#003641",
+                "tertiary-fixed-dim": "#d7c76f",
+                "surface-container": "#d1f4ff",
+                "on-secondary-container": "#735700",
+                "on-primary-fixed": "#2f1500",
+                "tertiary-fixed": "#f4e488",
+                "surface-container-low": "#e1f7ff",
+                "surface-container-highest": "#b6ebfb",
+                "on-tertiary-fixed": "#201c00",
+                "on-surface": "#001f26",
+                "surface-dim": "#ade2f2",
+                "secondary": "#775a00",
+                "primary": "#914d00",
+                "on-primary-container": "#522900",
+                "error": "#ba1a1a",
+                "sun-pale": "#FFEE91",
+                "extreme-red": "#C0392B",
+                "surface-container-lowest": "#ffffff",
+                "on-error": "#ffffff",
+                "inverse-on-surface": "#d9f6ff",
+                "on-tertiary-fixed-variant": "#514700",
+                "inverse-primary": "#ffb77e",
+                "on-tertiary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "sun-yellow": "#F5C857",
+                "outline": "#877365",
+                "on-primary": "#ffffff",
+                "error-container": "#ffdad6",
+                "surface-bright": "#f1fbff",
+                "on-surface-variant": "#544337",
+                "surface-variant": "#b6ebfb",
+                "primary-fixed": "#ffdcc3",
+                "on-primary-fixed-variant": "#6e3900",
+                "on-secondary-fixed-variant": "#5a4300",
+                "sun-orange": "#E2852E",
+                "tertiary-container": "#bbac57",
+                "sky-blue": "#ABE0F0",
+                "on-background": "#001f26",
+                "on-secondary-fixed": "#251a00",
+                "outline-variant": "#dac2b1",
+                "surface-tint": "#914d00",
+                "secondary-fixed": "#ffdf98",
+                "surface-container-high": "#bff0ff",
+                "on-error-container": "#93000a",
+                "primary-fixed-dim": "#ffb77e",
+                "on-tertiary-container": "#494000",
+                "secondary-container": "#fccf5d",
+                "surface": "#f1fbff",
+                "primary-container": "#e2852e"
+            },
+            "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "hero-gap": "16px",
+                "padding-watch": "8px",
+                "stats-gap": "28px",
+                "section-gap": "32px",
+                "padding-phone-x": "24px",
+                "base": "8px",
+                "log-item-height": "28px"
+            },
+            "fontFamily": {
+                "footer-tagline": ["Work Sans"],
+                "stats-label": ["Work Sans"],
+                "stats-value": ["Work Sans"],
+                "watch-uv-display": ["Work Sans"],
+                "apply-button": ["Work Sans"],
+                "log-entry": ["JetBrains Mono"],
+                "section-header-script": ["Dancing Script"],
+                "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "footer-tagline": ["11px", {"lineHeight": "16px", "fontWeight": "400"}],
+                "stats-label": ["11px", {"lineHeight": "16px", "fontWeight": "400"}],
+                "stats-value": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                "watch-uv-display": ["36px", {"lineHeight": "42px", "fontWeight": "700"}],
+                "apply-button": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "log-entry": ["13px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "section-header-script": ["18px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: linear-gradient(to bottom, #FFEE91 0%, #F5C857 50%, #ABE0F0 100%);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .apply-btn:active:not(:disabled) {
+            transform: scale(0.97);
+            background-color: rgba(226, 133, 46, 0.15);
+        }
+        .apply-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Animated Sun Styles */
+        @keyframes sun-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .sun-animation-container {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .sun-core {
+            width: 44px;
+            height: 44px;
+            background-color: #E2852E;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .sun-rays-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: sun-rotate 15s linear infinite;
+        }
+
+        .sun-ray {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 110px;
+            background-color: #E2852E;
+            margin-left: -4px;
+            margin-top: -55px;
+            border-radius: 4px;
+        }
+
+        .sun-ray:nth-child(2) { transform: rotate(45deg); }
+        .sun-ray:nth-child(3) { transform: rotate(90deg); }
+        .sun-ray:nth-child(4) { transform: rotate(135deg); }
+
+        /* Animation for new log entries */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-down {
+            animation: fadeInDown 200ms ease-out forwards;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-sun-orange">
+<!-- Top Navigation -->
+<header class="w-full top-0 left-0 sticky bg-transparent flex items-center justify-between px-padding-phone-x h-16 w-full z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sun-orange" data-icon="light_mode">light_mode</span>
+<h1 class="font-headline-lg text-headline-lg font-semibold text-sun-orange">SunGuard</h1>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center pt-12 pb-20 px-padding-phone-x">
+<!-- Hero Section -->
+<div class="mb-hero-gap flex flex-col items-center w-full">
+<div class="w-[120px] h-[120px] mb-8">
+<!-- Hero Icon Replacement: Animated Sun -->
+<div class="sun-animation-container">
+<div class="sun-rays-container">
+<div class="sun-ray"></div>
+<div class="sun-ray"></div>
+<div class="sun-ray"></div>
+<div class="sun-ray"></div>
+</div>
+<div class="sun-core"></div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<button class="apply-btn w-1/2 min-w-[140px] h-12 rounded-full border-[1.5px] border-sun-orange bg-transparent font-apply-button text-apply-button text-sun-orange transition-all duration-150 flex items-center justify-center" id="apply-btn">
+                Apply
+            </button>
+</div>
+<!-- Stats Row -->
+<div class="w-full grid grid-cols-3 gap-stats-gap mt-section-gap mb-section-gap">
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined mb-2" data-icon="wb_sunny" style="font-size: 28px;">wb_sunny</span>
+<span class="font-stats-value text-stats-value uppercase">8 HIGH</span>
+<span class="font-stats-label text-stats-label">Exposure</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined mb-2" data-icon="verified_user" style="font-size: 28px;">verified_user</span>
+<span class="font-stats-value text-stats-value uppercase">SPF 30</span>
+<span class="font-stats-label text-stats-label">Recommended SPF</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined mb-2" data-icon="hourglass_empty" style="font-size: 28px;">hourglass_empty</span>
+<span class="font-stats-value text-stats-value uppercase" id="last-applied-time">20:10</span>
+<span class="font-stats-label text-stats-label">Last Applied</span>
+</div>
+</div>
+<!-- Log Section -->
+<div class="w-full flex flex-col items-center mt-8">
+<h2 class="mb-4 font-headline-lg text-[16px] font-semibold">Application Log</h2>
+<div class="w-2/5 flex flex-col items-center overflow-y-auto max-h-[168px]" id="log-list"><div class="h-log-item-height font-log-entry text-log-entry animate-fade-in-down">20:10</div>
+<div class="h-log-item-height font-log-entry text-log-entry">11:00</div>
+<div class="h-log-item-height font-log-entry text-log-entry">10:34</div>
+<div class="h-log-item-height font-log-entry text-log-entry">11:00</div>
+<div class="h-log-item-height font-log-entry text-log-entry">4:48</div>
+<div class="h-log-item-height font-log-entry text-log-entry">5:42</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full pb-24 flex justify-center items-center text-center px-padding-phone-x mt-section-gap">
+<p class="font-footer-tagline text-footer-tagline italic max-w-[80%]">Stay Safe - your summer bestie ☀️ </p>
+</footer>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-padding-phone-x pb-8 bg-transparent">
+<div class="flex flex-col items-center justify-center text-sun-orange scale-110 cursor-pointer hover:text-sun-orange/80 transition-all">
+</div>
+<div class="flex flex-col items-center justify-center text-sun-orange/50 cursor-pointer hover:text-sun-orange/80 transition-all">
+</div>
+<div class="flex flex-col items-center justify-center text-sun-orange/50 cursor-pointer hover:text-sun-orange/80 transition-all">
+</div>
+</nav>
+<script>
+        // Micro-interaction and logic for the apply button
+        const btn = document.getElementById('apply-btn');
+        const logList = document.getElementById('log-list');
+        const lastAppliedLabel = document.getElementById('last-applied-time');
+
+        btn.addEventListener('click', () => {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const timeStr = `${hours}:${minutes}`;
+            
+            // 1. Update text and disable button
+            const originalText = "Apply";
+            btn.innerHTML = 'Applied!';
+            btn.disabled = true;
+
+            // 2. JavaScript timer to reset after 5 seconds
+            setTimeout(() => { 
+                btn.innerHTML = originalText; 
+                btn.disabled = false;
+            }, 5000);
+
+            // Update "Last Applied" stat
+            lastAppliedLabel.innerText = timeStr;
+
+            // 4. Keep dynamic logging functionality intact
+            const newEntry = document.createElement('div');
+            newEntry.className = 'h-log-item-height font-log-entry text-log-entry animate-fade-in-down';
+            newEntry.innerText = timeStr;
+            logList.insertBefore(newEntry, logList.firstChild);
+
+            // Scroll to top of log if needed
+            logList.scrollTop = 0;
+            
+            console.log('Applied at:', timeStr);
+        });
+
+        // Atmospheric parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.sun-animation-container');
+            if(hero) {
+                hero.style.transform = `translateY(${scrolled * 0.15}px)`;
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,26 @@
+---
+description: Sungaurd workspace identity — standalone project, not tied to other repos
+alwaysApply: true
+---
+
+# Sungaurd / sunguard-design
+
+This is the **only** active product workspace unless the user opens a different folder.
+
+## Scope
+
+- **Product:** Sungaurd (new project)
+- **Root:** `/home/ayeshaandroid/Desktop/Sungaurd/sunguard-design`
+- **Design:** Google Stitch (pinned project in `STITCH_PROJECT.md` / `.env`)
+- **Implementation:** Android app in this repo (`app/`, `docs/PRD.md`, `docs/design-assets/`)
+
+## Do not
+
+- Reference, import from, or compare to **android-passenger**, Jeeny, or any other legacy codebase unless the user explicitly asks in the current message.
+- Assume existing modules, packages, or APIs from other projects exist here.
+
+## Do
+
+- Treat `docs/PRD.md` and `docs/design-assets/` as source of truth when present.
+- Use Stitch MCP for UI design work scoped to the pinned project ID.
+- Save Stitch exports under `stitch/`.

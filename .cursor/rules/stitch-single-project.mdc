@@ -1,0 +1,24 @@
+---
+description: Restrict Google Stitch MCP to one pinned project
+alwaysApply: true
+---
+
+# Stitch single-project policy
+
+This workspace is scoped to **one** Google Stitch project.
+
+## Pinned project
+
+- **STITCH_PROJECT_ID**: `17562754834645466144`
+- Read `STITCH_PROJECT_NAME` from `.env` when set.
+
+## Rules
+
+1. For all Stitch MCP tool calls (`list_screens`, `get_screen`, `generate_screen_from_text`, `fetch_screen_code`, `fetch_screen_image`, `extract_design_context`, etc.), always use project ID **`17562754834645466144`** unless the user explicitly names a different project in the current message.
+
+2. Do **not** call `create_project` unless the user explicitly asks to create a new Stitch project.
+
+3. If `list_projects` is needed, only use it to confirm the pinned project exists—do not create or modify other projects.
+
+4. Save exported assets under `stitch/` in this workspace when fetching code or images.
+

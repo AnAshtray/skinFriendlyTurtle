@@ -1,0 +1,16 @@
+.env
+.env.local
+local.properties
+*.log
+stitch/**/*.png
+.DS_Store
+
+# Android
+.gradle/
+build/
+**/build/
+*.iml
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/

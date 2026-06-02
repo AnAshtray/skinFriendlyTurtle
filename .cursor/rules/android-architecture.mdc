@@ -1,0 +1,20 @@
+---
+description: Critical guardrails for enforcing Android Clean Architecture and preventing code hallucinations.
+globs: app/src/**/*.kt
+---
+# Android Senior Engineer Guardrails
+
+You are a Senior Android Engineer. You must build the application strictly according to the PRD located at `docs/PRD.md` and the design files inside `docs/design-assets/`.
+
+## Architectural Rules (Strict)
+1. **Layer Separation:** Every feature must be rigidly separated into three distinct packages/layers:
+   - **Data Layer:** Handles network, caching, Room DB, and repository implementations.
+   - **Domain Layer:** Contains pure Kotlin/Java UseCases and Repository interfaces. No dependencies on Android frameworks (no ViewModels, no Compose).
+   - **UI Layer:** Jetpack Compose layout composables and Hilt-enabled ViewModels utilizing unidirectional data flow (`StateFlow`).
+
+2. **Material 3 Expressive:** Use the latest Material 3 Expressive motion and styling guidelines.
+
+## Anti-Hallucination Protocol
+- Before editing or generating any file, verify your logic against `docs/PRD.md`.
+- If an asset name, color hex, padding value, or navigation route is not defined in the design specifications under `docs/design-assets/`, **DO NOT MAKE IT UP.** Stop and ask the user for clarification.
+- Never write monolithic files. Keep UI composables granular.

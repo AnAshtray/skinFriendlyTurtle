@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SunGuard</string>
+    <string name="apply_button">Apply</string>
+    <string name="application_log_header">Application Log</string>
+    <string name="log_empty">No logs yet</string>
+    <string name="footer_tagline">Apply religiously, we don\'t want any sun damage this summer ☀️</string>
+    <string name="stat_uv_index">UV Index</string>
+    <string name="stat_spf">SPF</string>
+    <string name="stat_last_applied">Last Applied</string>
+    <string name="stat_not_yet">Not yet</string>
+    <string name="hero_content_description">SunGuard sun hero</string>
+    <string name="apply_content_description">Log sunscreen application</string>
+    <string name="uv_cached">cached</string>
+</resources>
